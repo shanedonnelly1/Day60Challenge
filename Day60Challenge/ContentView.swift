@@ -10,27 +10,37 @@ import CoreData
 
 struct ContentView: View {
     @State private var users: [User] = []
+    @State private var showingActiveOnly = true
+    
+    var showUsers: [User] {
+        showingActiveOnly ? users.filter { $0.isActive == true } : users
+    }
     
     var body: some View {
         NavigationView {
-            List(users) { user in
-                NavigationLink(
-                    destination: DetailView(user: user)) {
-                    VStack(alignment: .leading) {
-                        Text(user.name)
-                            .font(.headline)
-                        Text(user.company)
-                            .font(.subheadline)
+            List {
+                ForEach(showUsers) { user in
+                    NavigationLink(
+                        destination: DetailView(user: user)) {
+                        VStack(alignment: .leading) {
+                            Text(user.name)
+                                .font(.headline)
+                            Text(user.company)
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                        // Make this a circle
+                        Text("\(user.friends.count)")
+                        Image(systemName: "person.3")
                     }
-                    Spacer()
-                    // Make this a circle
-                    Text("\(user.friends.count)")
-                    Image(systemName: "person.3")
+                    .foregroundColor(user.isActive ? .black : .gray)
                 }
-                .foregroundColor(user.isActive ? .black : .gray)
             }
             .onAppear(perform: loadData)
             .navigationBarTitle("Friend Face")
+            .navigationBarItems(trailing: Toggle(isOn: $showingActiveOnly) {
+                Text("Active")
+            })
         }
     }
     
