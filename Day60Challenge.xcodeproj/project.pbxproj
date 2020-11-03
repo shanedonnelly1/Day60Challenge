@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340E930825514E76004BB78F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E930725514E76004BB78F /* Data.swift */; };
 		341DE18325496589006FCA0F /* Day60ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DE18225496589006FCA0F /* Day60ChallengeApp.swift */; };
 		341DE18525496589006FCA0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DE18425496589006FCA0F /* ContentView.swift */; };
 		341DE1872549658A006FCA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341DE1862549658A006FCA0F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340E930725514E76004BB78F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Models/Data.swift; sourceTree = "<group>"; };
 		341DE17F25496589006FCA0F /* Day60Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day60Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		341DE18225496589006FCA0F /* Day60ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day60ChallengeApp.swift; sourceTree = "<group>"; };
 		341DE18425496589006FCA0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				341DE18225496589006FCA0F /* Day60ChallengeApp.swift */,
 				341DE18425496589006FCA0F /* ContentView.swift */,
+				340E930725514E76004BB78F /* Data.swift */,
 				34E47760254DDAFD0021E805 /* DetailView.swift */,
 				347FCF50254ABD0C0008CC11 /* Models */,
 				341DE1862549658A006FCA0F /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 				347FCF4E254ABD050008CC11 /* Friend.swift in Sources */,
 				341DE18F2549658A006FCA0F /* Day60Challenge.xcdatamodeld in Sources */,
 				341DE18325496589006FCA0F /* Day60ChallengeApp.swift in Sources */,
+				340E930825514E76004BB78F /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

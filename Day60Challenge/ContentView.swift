@@ -9,11 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var users: [User] = []
+    @State private var users: [String: User] = [:]
     @State private var showingActiveOnly = true
     
     var showUsers: [User] {
-        showingActiveOnly ? users.filter { $0.isActive == true } : users
+        var users: [User] = self.users.map { $1 }
+        if showingActiveOnly {
+            users = users.filter { $0.isActive }
+        }
+        return users.sorted { $0.name < $1.name }
     }
     
     var body: some View {
@@ -57,7 +61,9 @@ struct ContentView: View {
                 decoder.dateDecodingStrategy = .iso8601
                 if let decodedResponse = try? decoder.decode([User].self, from: data) {
                     DispatchQueue.main.async {
-                        self.users = decodedResponse
+                        self.users = decodedResponse.reduce(into: [String: User]()) {
+                            $0[$1.id] = $1
+                        }
                     }
                     return
                 }
